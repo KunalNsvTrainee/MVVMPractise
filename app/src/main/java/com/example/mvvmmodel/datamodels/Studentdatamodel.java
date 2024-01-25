@@ -26,6 +26,7 @@ public class Studentdatamodel extends AndroidViewModel {
         dao= Instances.getInstance(application)
                 .dao();
         list=dao.getAll();
+
     }
 
     public void insertData(Datamodel model){

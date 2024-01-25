@@ -15,6 +15,7 @@ import com.example.mvvmmodel.database.Databasecls;
 import com.example.mvvmmodel.databinding.ActivityMainBinding;
 import com.example.mvvmmodel.datamodels.Studentdatamodel;
 
+import java.util.Collections;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
@@ -40,10 +41,12 @@ rvadepter rvadepter;
         studentdatamodel.getList().observe(this, new Observer<List<Datamodel>>() {
             @Override
             public void onChanged(List<Datamodel> datamodels) {
+                Collections.reverse(datamodels);
                 rvadepter=new rvadepter(datamodels);
-            }
+                binding.rv.setAdapter(rvadepter);
+             }
         });
-        binding.rv.setAdapter(rvadepter);
+
 
         binding.submit.setOnClickListener(new View.OnClickListener() {
             @Override
